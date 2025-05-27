@@ -12,20 +12,17 @@
 // eslint-disable-next-line no-unused-vars
 function calculate() {
   // input
-  let firstUserInput = parseFloat(document.getElementById("firstNumber").value)
-  const secondUserInput = parseFloat(document.getElementById("secondNumber").value)
-  let number = 0
-  const answer = firstUserInput
+  let firstNumber = parseInt(document.getElementById("firstNumber").value)
+  const secondNumber = parseInt(document.getElementById("secondNumber").value)
+  let numberOfTerms = parseInt(document.getElementById("numberOfTerms").value)
+  let answer = 0
 
   // process
-  while (true) {
-    number++
-    firstUserInput = firstUserInput - secondUserInput
-    if (firstUserInput < secondUserInput){
-      break
-    }
+  while (numberOfTerms) {
+    answer = answer + secondNumber
+    firstNumber --
   }
   // output
   document.getElementById("result").innerHTML =
-    + answer + ' ÷ ' + secondUserInput + ' = ' + number + ' R ' + firstUserInput
+  'Your number is: ' + answer
 }
