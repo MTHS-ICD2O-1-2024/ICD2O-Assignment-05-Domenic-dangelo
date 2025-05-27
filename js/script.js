@@ -12,17 +12,37 @@
 // eslint-disable-next-line no-unused-vars
 function calculate() {
   // input
-  let firstNumber = parseInt(document.getElementById("firstNumber").value)
+  const firstNumber = parseInt(document.getElementById("firstNumber").value)
   const secondNumber = parseInt(document.getElementById("secondNumber").value)
-  let numberOfTerms = parseInt(document.getElementById("numberOfTerms").value)
-  let answer = 0
+  const term = 5
+
+  let resultSequence = ""
 
   // process
-  while (numberOfTerms) {
-    answer = answer + secondNumber
-    firstNumber --
+  for (let count = 0; count < term; count++) {
+    let currentNumber = 1
+
+    for (let counter = 0; counter < count; counter++) {
+      let repeatedlyAdd = 0
+
+      for (let loop = 0; loop < secondNumber; loop++) {
+        repeatedlyAdd += currentNumber
+      }
+      currentNumber = repeatedlyAdd
+    }
+
+    let termValue = 0
+    for (let repeatAdd = 0; repeatAdd < firstNumber; repeatAdd++){
+      termValue += currentNumber
+    }
+
+    resultSequence += termValue
+    if (count < term - 1) {
+      resultSequence += ", "
+    }
   }
-  // output
+
+  // Display the full sequence
   document.getElementById("result").innerHTML =
-  'Your number is: ' + answer
+    'Your geometric sequence is: ' + resultSequence
 }
